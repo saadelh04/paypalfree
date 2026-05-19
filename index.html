@@ -3,25 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exclusive Reward Offer</title>
+<title>Reward Verification Portal</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
-    <div class="card">
-        <h1>🎁 Exclusive Limited Offer</h1>
-        <p>Complete a quick step to unlock your reward.</p>
+<div class="wrapper">
 
-        <div id="countdown">Offer expires in: 60</div>
+  <!-- STEP 1 -->
+  <div class="card step active" id="step1">
+    <h1>🎯 Reward Eligibility Check</h1>
+    <p>Answer 2 quick questions to continue</p>
 
-        <form id="leadForm">
-            <input type="email" placeholder="Enter your email" required>
-            <button type="submit">Continue →</button>
-        </form>
+    <button onclick="nextStep()">Start Verification</button>
 
-        <small>No spam. Only verified offers.</small>
+    <div class="trust">
+      ✔ Secure process<br>
+      ✔ No credit card required<br>
+      ✔ Instant access after verification
     </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="card step" id="step2">
+    <h2>Step 1 of 2</h2>
+    <p>Do you want to check available rewards in your region?</p>
+
+    <button onclick="nextStep()">Yes</button>
+    <button onclick="nextStep()">Maybe later</button>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="card step" id="step3">
+    <h2>Step 2 of 2</h2>
+
+    <div id="progress">Processing: 0%</div>
+
+    <p>Matching you with best available offers...</p>
+
+    <div class="loader"></div>
+  </div>
+
 </div>
 
 <script src="script.js"></script>
