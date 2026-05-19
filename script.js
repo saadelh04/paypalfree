@@ -1,17 +1,34 @@
-let time = 60;
-let countdown = document.getElementById("countdown");
+let step = 1;
 
-setInterval(() => {
-    time--;
-    countdown.innerText = "Offer expires in: " + time;
+function showStep(n){
+    document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
+    document.getElementById("step"+n).classList.add("active");
+}
 
-    if(time <= 0){
-        countdown.innerText = "Offer expired!";
+function nextStep(){
+    step++;
+    showStep(step);
+
+    if(step === 3){
+        startProgress();
     }
-}, 1000);
+}
 
-document.getElementById("leadForm").addEventListener("submit", function(e){
-    e.preventDefault();
-    alert("Redirecting to offer...");
-    window.location.href = "https://smrturl.co/a/sa1758827e2/576?s1=";
-});
+function startProgress(){
+    let p = 0;
+    let el = document.getElementById("progress");
+
+    let int = setInterval(() => {
+        p += 5;
+        el.innerText = "Processing: " + p + "%";
+
+        if(p >= 100){
+            clearInterval(int);
+
+            // 🔥 CPA Redirect (CHANGE THIS)
+            setTimeout(() => {
+                window.location.href = "https://your-cpa-link.com";
+            }, 800);
+        }
+    }, 120);
+}
