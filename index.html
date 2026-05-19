@@ -1,74 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Secure Rewards Portal</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:#f5f7fb;
+  color:#1c1c1c;
+}
+
+/* NAV */
+.nav{
+  background:white;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #e6e6e6;
+}
+
+.logo{
+  color:#003087;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.nav button{
+  border:1px solid #003087;
+  background:white;
+  color:#003087;
+  padding:8px 14px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* MAIN */
+.container{
+  max-width:1100px;
+  margin:60px auto;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+  padding:20px;
+}
+
+/* TEXT */
+h1{
+  font-size:44px;
+  color:#003087;
+}
+
+h1 span{
+  color:#0070e0;
+}
+
+p{
+  margin:15px 0;
+  color:#555;
+  line-height:1.6;
+}
+
+/* CTA */
+.cta{
+  display:flex;
+  margin-top:20px;
+}
+
+.cta input{
+  flex:1;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:6px 0 0 6px;
+}
+
+.cta button{
+  background:#0070e0;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:0 6px 6px 0;
+  cursor:pointer;
+}
+
+/* CARD */
+.card{
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  text-align:center;
+}
+
+.card h3{
+  color:#003087;
+  margin-bottom:10px;
+}
+
+.primary{
+  background:#0070e0;
+  color:white;
+  border:none;
+  padding:12px;
+  width:100%;
+  border-radius:8px;
+  margin-top:15px;
+  cursor:pointer;
+}
+
+.primary:hover{
+  background:#005bb5;
+}
+
+/* FEATURES */
+.features{
+  display:flex;
+  gap:15px;
+  margin-top:25px;
+  flex-wrap:wrap;
+}
+
+.feature{
+  background:white;
+  padding:12px 15px;
+  border-radius:10px;
+  border:1px solid #eee;
+  font-size:13px;
+}
+
+/* TIMER */
+.timer{
+  margin-top:20px;
+  color:#d9534f;
+  font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:12px;
+  color:#777;
+}
+</style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
+<div class="nav">
   <div class="logo">SecurePay Portal</div>
-  <button class="signin">Sign in</button>
-</header>
+  <button>Sign in</button>
+</div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
-    <h1>Access Verified Online Offers</h1>
+<div class="container">
+
+  <div>
+    <h1>Access <span>Verified</span> Digital Offers</h1>
+
     <p>
-      Discover available digital rewards and partner offers through a secure verification system.
+      Join our secure partner network and check available digital reward eligibility.
+      Fast, secure and mobile optimized access system.
     </p>
 
-    <div class="cta-box">
-      <input type="email" placeholder="Enter your email">
+    <div class="cta">
+      <input type="email" placeholder="Enter your email"/>
       <button>Continue</button>
     </div>
 
-    <small>Protected by encrypted verification system</small>
+    <div class="features">
+      <div class="feature">✔ Secure system</div>
+      <div class="feature">✔ No payment required</div>
+      <div class="feature">✔ Instant verification</div>
+    </div>
 
-    <div class="trust">
-      ✔ Secure connection &nbsp; ✔ Privacy protected &nbsp; ✔ No payment required
+    <div class="timer">
+      Offer expires in: <span id="t">05:00</span>
     </div>
   </div>
 
-  <div class="hero-card">
+  <div class="card">
     <h3>Account Verification</h3>
-    <p>Check eligibility for available offers</p>
+    <p>Check eligibility for partner offers</p>
 
-    <button class="primary">Start Verification</button>
+    <button class="primary" id="go">Start Verification</button>
 
-    <div class="mini-info">
-      Average time: 30 seconds
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features">
-  <div class="feature">
-    <h4>Secure Processing</h4>
-    <p>All requests are processed through encrypted systems.</p>
+    <p style="font-size:12px;color:#777;margin-top:10px;">
+      Average process time: 30–60 seconds
+    </p>
   </div>
 
-  <div class="feature">
-    <h4>Global Access</h4>
-    <p>Available in multiple regions worldwide.</p>
-  </div>
+</div>
 
-  <div class="feature">
-    <h4>No Hidden Fees</h4>
-    <p>Transparent and user-friendly verification flow.</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <p>© 2026 SecurePay Portal. All rights reserved.</p>
+  © 2026 SecurePay Portal. All rights reserved.
 </footer>
+
+<script>
+// redirect funnel (better conversion)
+document.getElementById("go").onclick = function(){
+  document.body.innerHTML = `
+    <div style="height:100vh;display:flex;justify-content:center;align-items:center;flex-direction:column;font-family:Arial;background:#f5f7fb;">
+      <h2 style="color:#003087;">Verifying your request...</h2>
+      <p>Matching available partner offers</p>
+      <div style="margin-top:20px;width:40px;height:40px;border:4px solid #ccc;border-top:4px solid #0070e0;border-radius:50%;animation:spin 1s linear infinite;"></div>
+      <style>
+        @keyframes spin{100%{transform:rotate(360deg)}}
+      </style>
+    </div>
+  `;
+
+  setTimeout(()=>{
+    window.location.href="https://smrturl.co/a/sa1758827e2/576?s1=";
+  },3000);
+};
+
+// timer
+let time = 300;
+setInterval(()=>{
+  let m = Math.floor(time/60);
+  let s = time%60;
+  if(s<10) s="0"+s;
+  document.getElementById("t").innerText = `${m}:${s}`;
+  if(time>0) time--;
+},1000);
+</script>
 
 </body>
 </html>
