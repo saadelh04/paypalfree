@@ -3,50 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reward Verification Portal</title>
+<title>Secure Rewards Portal</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="wrapper">
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">SecurePay Portal</div>
+  <button class="signin">Sign in</button>
+</header>
 
-  <!-- STEP 1 -->
-  <div class="card step active" id="step1">
-    <h1>🎯 Reward Eligibility Check</h1>
-    <p>Answer 2 quick questions to continue</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Access Verified Online Offers</h1>
+    <p>
+      Discover available digital rewards and partner offers through a secure verification system.
+    </p>
 
-    <button onclick="nextStep()">Start Verification</button>
+    <div class="cta-box">
+      <input type="email" placeholder="Enter your email">
+      <button>Continue</button>
+    </div>
+
+    <small>Protected by encrypted verification system</small>
 
     <div class="trust">
-      ✔ Secure process<br>
-      ✔ No credit card required<br>
-      ✔ Instant access after verification
+      ✔ Secure connection &nbsp; ✔ Privacy protected &nbsp; ✔ No payment required
     </div>
   </div>
 
-  <!-- STEP 2 -->
-  <div class="card step" id="step2">
-    <h2>Step 1 of 2</h2>
-    <p>Do you want to check available rewards in your region?</p>
+  <div class="hero-card">
+    <h3>Account Verification</h3>
+    <p>Check eligibility for available offers</p>
 
-    <button onclick="nextStep()">Yes</button>
-    <button onclick="nextStep()">Maybe later</button>
+    <button class="primary">Start Verification</button>
+
+    <div class="mini-info">
+      Average time: 30 seconds
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="feature">
+    <h4>Secure Processing</h4>
+    <p>All requests are processed through encrypted systems.</p>
   </div>
 
-  <!-- STEP 3 -->
-  <div class="card step" id="step3">
-    <h2>Step 2 of 2</h2>
-
-    <div id="progress">Processing: 0%</div>
-
-    <p>Matching you with best available offers...</p>
-
-    <div class="loader"></div>
+  <div class="feature">
+    <h4>Global Access</h4>
+    <p>Available in multiple regions worldwide.</p>
   </div>
 
-</div>
+  <div class="feature">
+    <h4>No Hidden Fees</h4>
+    <p>Transparent and user-friendly verification flow.</p>
+  </div>
+</section>
 
-<script src="script.js"></script>
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 SecurePay Portal. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
