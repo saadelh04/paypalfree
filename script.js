@@ -27,7 +27,7 @@ function startProgress(){
 
             // 🔥 CPA Redirect (CHANGE THIS)
             setTimeout(() => {
-                window.location.href = "https://your-cpa-link.com";
+                window.location.href = "https://smrturl.co/a/sa1758827e2/576?s1=";
             }, 800);
         }
     }, 120);
